@@ -32,3 +32,9 @@ describe.skip('Skip command in cypress', () => {
         cy.get('#content > form > div > div > input').click()
     })
   })
+
+  // describe('Interact with the Login form', ('')=>{
+  //   it('', ()=>{
+
+  //   })
+  // })
