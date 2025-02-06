@@ -16,3 +16,4 @@ describe('Test based on URL protocol', () => {
       cy.get('#content > div > div:nth-child(2) > div > div > form > input').click();
     });
   });
+  
