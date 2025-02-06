@@ -1,5 +1,5 @@
 // Perform skip test on chrome
-// run test on all browsers except chrome
+// run test on all operation system except windows
 describe('Parent Scope Element', () => {
     it('Open the specified url and navigate to the third blog and then click on the link', () => {
         cy.skipOn('windows')
