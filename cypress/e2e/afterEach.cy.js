@@ -1,4 +1,4 @@
-describe('Select and click the product card', () => {
+describe('Run the afterEach after the completion of a it block', () => {
 
     afterEach(() => {
         cy.onlyOn('mac').onlyOn('chrome')
