@@ -17,11 +17,7 @@ describe('Interact with the Login form', ()=>{
     it('Provide users email and password and login', ()=>{
         cy.skipOn('firefox')
         cy.onlyOn("windows").onlyOn('chrome')
-        cy.visit('https://ecommerce-playground.lambdatest.io/index.php?route=common/home')
-        cy.get('#widget-navbar-217834 > ul > li:nth-child(6)').trigger('mouseover')
-        cy.get('#widget-navbar-217834 > ul > li:nth-child(6) > ul > li:nth-child(1) > a').should('be.visible').click()
-        cy.get('#input-email').type('ocxigin@gmail.com')
-        cy.get('#input-password').type('mypassword')
-        cy.get('#content > div > div:nth-child(2) > div > div > form > input').click()
+        // A custom commands : it login a user on the LambdaTest 
+        cy.login()
     })
 })

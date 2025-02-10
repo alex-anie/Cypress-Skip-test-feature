@@ -33,15 +33,8 @@ describe('Skip command in cypress', () => {
   })
 
   it('Locate and interact with the specified card element on the web page', () => {
-   // Visit the initial page
-  cy.visit('https://ecommerce-playground.lambdatest.io/index.php?route=product/category&path=25');
-
-  // Click on the pagination next button or specific element
-  cy.get('#entry_212409 > div > div.col-sm-6.text-left > ul > li:nth-child(7) > a').click();
-
-  // After the page loads, target the desired element (image card) on the new page and click
-  cy.get('#mz-product-grid-image-100-212408').should('be.visible').click();
-  })
+    cy.getHtcElement()
+})
 
   it.skip('Skipped test: clicked on the Apple Cinema card', () => {
     cy.visit('https://ecommerce-playground.lambdatest.io/index.php?route=product/category&path=25')
@@ -83,20 +76,11 @@ describe.skip('Skip command in cypress', () => {
 
   describe('Interact with the register form', ()=>{
     it('click the register button and fill in the input tag and click continue', ()=>{
-        cy.visit('https://ecommerce-playground.lambdatest.io/index.php?route=common/home')
-        cy.get('#widget-navbar-217834 > ul > li:nth-child(6)').trigger('mouseover')
-        cy.get('#widget-navbar-217834 > ul > li:nth-child(6) > ul > li:nth-child(2) > a').should('be.visible').click()
-        cy.get('#input-firstname').type('Alex')
-        cy.get('#input-lastname').type('Anie')
-        cy.get('#input-email').type('ocxigin@gmail.com')
-        cy.get('#input-telephone').type('090-222-222-1222-00')
-        cy.get('#input-password').type('mypassword')
-        cy.get('#input-confirm').type('mypassword')
-        cy.get('#input-newsletter-yes').check({ force: true })
-        cy.get('#input-agree').check({ force: true })
-        cy.get('#content > form > div > div > input').click()
+      // Register custom commands : it register a user to the LambdaTest playground platform
+      cy.register()
     })
   })
+
 ```
 
 First Test Suite (`describe.skip()`):
@@ -162,29 +146,15 @@ describe('Select and click the product card', () => {
 
   describe('Interact with the register form', ()=>{
     it('click the register button and fill in the input tag and click continue', ()=>{
-        cy.visit('https://ecommerce-playground.lambdatest.io/index.php?route=common/home')
-        cy.get('#widget-navbar-217834 > ul > li:nth-child(6)').trigger('mouseover')
-        cy.get('#widget-navbar-217834 > ul > li:nth-child(6) > ul > li:nth-child(2) > a').should('be.visible').click()
-        cy.get('#input-firstname').type('Alex')
-        cy.get('#input-lastname').type('Anie')
-        cy.get('#input-email').type('ocxigin@gmail.com')
-        cy.get('#input-telephone').type('090-222-222-1222-00')
-        cy.get('#input-password').type('mypassword')
-        cy.get('#input-confirm').type('mypassword')
-        cy.get('#input-newsletter-yes').check({ force: true })
-        cy.get('#input-agree').check({ force: true })
-        cy.get('#content > form > div > div > input').click()
+         // Register custom commands : it register a user to the LambdaTest playground platform
+         cy.register()
     })
   })
 
   describe.only('Interact with the Login form', ()=>{
     it('Provide users email and password and login', ()=>{
-        cy.visit('https://ecommerce-playground.lambdatest.io/index.php?route=common/home')
-        cy.get('#widget-navbar-217834 > ul > li:nth-child(6)').trigger('mouseover')
-        cy.get('#widget-navbar-217834 > ul > li:nth-child(6) > ul > li:nth-child(1) > a').should('be.visible').click()
-        cy.get('#input-email').type('ocxigin@gmail.com')
-        cy.get('#input-password').type('mypassword')
-        cy.get('#content > div > div:nth-child(2) > div > div > form > input').click()
+         // A custom commands : it login a user on the LambdaTest 
+         cy.login()
     })
   })
 ```
@@ -243,12 +213,8 @@ Here using the `skipOn`, the above cypress code is executed on any browser it lo
 describe('Parent Scope Element', () => {
     it('Open the specified url and navigate to the third blog and then click on the link', () => {
         cy.onlyOn('chrome')
-        cy.visit('https://ecommerce-playground.lambdatest.io/index.php?route=extension/maza/blog/category&path=6');
-        cy.get('#entry_210951 > div > div:nth-child(3) > div > div.caption > a').should('be.visible').click()
-        cy.get('#input-name').type('Alex Anie')
-        cy.get('#input-email').type('ocxigin@gmail.com')
-        cy.get('#input-comment').type('This is a great content. Thanks for sharing')
-        cy.get('#button-comment').click()
+         // A custom commands : it login a user on the LambdaTest 
+         cy.login()
     });
 })
 ```
@@ -269,7 +235,7 @@ describe('Parent Scope Element', () => {
         cy.get('#entry_210951 > div > div:nth-child(3) > div > div.caption > a').should('be.visible').click()
         cy.get('#entry_210900 > nav > ol > li:nth-child(3) > a').should('be.visible').click()
         cy.get('#entry_210951 > div > div:nth-child(5) > div > div.caption > a').should('be.visible').click()
-    });
+    })
 })
 ```
 
@@ -278,25 +244,7 @@ Here, the code will only run on a mac or any other operating system aside window
 [Example 2 onlyOn:](https://github.com/alex-anie/Cypress-Skip-test-feature/blob/main/cypress/e2e/onlyOn_os.cy.js)
 
 ```jsx
-// Perform skip test on chrome
-// run test only on windows
-describe('Interact with the register form', ()=>{
-    it('click the register button and fill in the input tag and click continue', ()=>{
-        cy.onlyOn('windows')
-        cy.visit('https://ecommerce-playground.lambdatest.io/index.php?route=common/home')
-        cy.get('#widget-navbar-217834 > ul > li:nth-child(6)').trigger('mouseover')
-        cy.get('#widget-navbar-217834 > ul > li:nth-child(6) > ul > li:nth-child(2) > a').should('be.visible').click()
-        cy.get('#input-firstname').type('Alex')
-        cy.get('#input-lastname').type('Anie')
-        cy.get('#input-email').type('ocxigin@gmail.com')
-        cy.get('#input-telephone').type('090-222-222-1222-00')
-        cy.get('#input-password').type('mypassword')
-        cy.get('#input-confirm').type('mypassword')
-        cy.get('#input-newsletter-yes').check({ force: true })
-        cy.get('#input-agree').check({ force: true })
-        cy.get('#content > form > div > div > input').click()
-    })
-  })
+
 ```
 
 Here the code only runs on windows.
@@ -323,14 +271,10 @@ describe('Interact with the Login form', ()=>{
     it('Provide users email and password and login', ()=>{
         cy.skipOn('firefox')
         cy.onlyOn("windows").onlyOn('chrome')
-        cy.visit('https://ecommerce-playground.lambdatest.io/index.php?route=common/home')
-        cy.get('#widget-navbar-217834 > ul > li:nth-child(6)').trigger('mouseover')
-        cy.get('#widget-navbar-217834 > ul > li:nth-child(6) > ul > li:nth-child(1) > a').should('be.visible').click()
-        cy.get('#input-email').type('ocxigin@gmail.com')
-        cy.get('#input-password').type('mypassword')
-        cy.get('#content > div > div:nth-child(2) > div > div > form > input').click()
+        // A custom commands : it login a user on the LambdaTest 
+        cy.login()
     })
-  })
+})
 ```
 
 The code above is as follows:
@@ -360,7 +304,6 @@ describe('Test based on URL protocol', () => {
       cy.get('#content > div > div:nth-child(2) > div > div > form > input').click();
     });
   });
-
 ```
 
 Here, we  are checking the base url and with the help of cy.location we check the protocol to make sure it https before the test case is run. 
@@ -402,18 +345,8 @@ describe('Verify the Operating system before running', ()=>{
       });
 
     it('click the register button and fill in the input tag and click continue', ()=>{
-        cy.visit('https://ecommerce-playground.lambdatest.io/index.php?route=common/home')
-        cy.get('#widget-navbar-217834 > ul > li:nth-child(6)').trigger('mouseover')
-        cy.get('#widget-navbar-217834 > ul > li:nth-child(6) > ul > li:nth-child(2) > a').should('be.visible').click()
-        cy.get('#input-firstname').type('Alex')
-        cy.get('#input-lastname').type('Anie')
-        cy.get('#input-email').type('ocxigin@gmail.com')
-        cy.get('#input-telephone').type('090-222-222-1222-00')
-        cy.get('#input-password').type('mypassword')
-        cy.get('#input-confirm').type('mypassword')
-        cy.get('#input-newsletter-yes').check({ force: true })
-        cy.get('#input-agree').check({ force: true })
-        cy.get('#content > form > div > div > input').click()
+        // Register custom commands : it register a user to the LambdaTest playground platform
+        cy.register()
     })
 
     it('Open the specified url and navigate to the third blog and then click on the link', () => {
@@ -459,7 +392,6 @@ Here before any of the it block is run, the beforeEach is run to check if the sp
 
 ```jsx
 describe('Verify the Operating system after running', ()=>{
-    
     after(() => {
         cy.onlyOn('mac').onlyOn('chrome')
         cy.visit('https://ecommerce-playground.lambdatest.io/index.php?route=extension/maza/blog/article&article_id=36')
@@ -467,18 +399,8 @@ describe('Verify the Operating system after running', ()=>{
     });
 
     it('click the register button and fill in the input tag and click continue', ()=>{
-        cy.visit('https://ecommerce-playground.lambdatest.io/index.php?route=common/home')
-        cy.get('#widget-navbar-217834 > ul > li:nth-child(6)').trigger('mouseover')
-        cy.get('#widget-navbar-217834 > ul > li:nth-child(6) > ul > li:nth-child(2) > a').should('be.visible').click()
-        cy.get('#input-firstname').type('Alex')
-        cy.get('#input-lastname').type('Anie')
-        cy.get('#input-email').type('ocxigin@gmail.com')
-        cy.get('#input-telephone').type('090-222-222-1222-00')
-        cy.get('#input-password').type('mypassword')
-        cy.get('#input-confirm').type('mypassword')
-        cy.get('#input-newsletter-yes').check({ force: true })
-        cy.get('#input-agree').check({ force: true })
-        cy.get('#content > form > div > div > input').click()
+     // Register custom commands : it register a user to the LambdaTest playground platform
+        cy.register()
     })
 
     it('Open the specified url and navigate to the third blog and then click on the link', () => {
@@ -572,7 +494,7 @@ describe('Test with error handling and Cypress Skip Test', () => {
 
 ## `cypress open`
 
-You can open Cypress from your **project root** using the commands, depending on the package manager. In this case, we are using `npm`. You can learn more about another package manager [here](https://docs.cypress.io/app/get-started/open-the-app#cypress-open)
+You can open Cypress from your **project root** using the commands, depending on the package manager. In this case, we are using `npm`. You can learn more about another package manager [here](/cypress/downloads/thumbnail.png)
 
 ```bash
 npx cypress open
