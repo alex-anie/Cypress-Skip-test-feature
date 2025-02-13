@@ -19,6 +19,7 @@ describe.skip('Skip command in cypress', () => {
   describe('Interact with the register form', ()=>{
     it('click the register button and fill in the input tag and click continue', ()=>{
       // Register custom commands : it register a user to the LambdaTest playground platform
+      cy.visit('https://ecommerce-playground.lambdatest.io/index.php?route=common/home')
       cy.register()
     })
   })
