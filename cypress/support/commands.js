@@ -12,7 +12,6 @@
 
 // Register a user
 Cypress.Commands.add('register', ()=>{
-    cy.visit('https://ecommerce-playground.lambdatest.io/index.php?route=common/home')
     cy.get('#widget-navbar-217834 > ul > li:nth-child(6)').trigger('mouseover')
     cy.get('#widget-navbar-217834 > ul > li:nth-child(6) > ul > li:nth-child(2) > a').should('be.visible').click()
     cy.get('#input-firstname').type('Alex')
@@ -28,10 +27,15 @@ Cypress.Commands.add('register', ()=>{
 
 // Login a User
 Cypress.Commands.add('login', ()=>{
-    cy.visit('https://ecommerce-playground.lambdatest.io/index.php?route=common/home')
     cy.get('#widget-navbar-217834 > ul > li:nth-child(6)').trigger('mouseover')
     cy.get('#widget-navbar-217834 > ul > li:nth-child(6) > ul > li:nth-child(1) > a').should('be.visible').click()
     cy.get('#input-email').type('ocxigin@gmail.com')
     cy.get('#input-password').type('mypassword')
     cy.get('#content > div > div:nth-child(2) > div > div > form > input').click()
+})
+
+Cypress.Commands.add('blog', ()=>{
+    cy.get('#entry_210951 > div > div:nth-child(3) > div > div.caption > a').should('be.visible').click()
+    cy.get('#entry_210900 > nav > ol > li:nth-child(3) > a').should('be.visible').click()
+    cy.get('#entry_210951 > div > div:nth-child(5) > div > div.caption > a').should('be.visible').click()
 })

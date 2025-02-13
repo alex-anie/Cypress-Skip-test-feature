@@ -1,2 +1,2 @@
 import './commands'
-import '@cypress/skip-test/support'
+// import '@cypress/skip-test/support'

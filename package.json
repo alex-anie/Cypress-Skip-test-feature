@@ -1,8 +1,6 @@
 {
   "devDependencies": {
-    "cypress": "^14.0.1"
-  },
-  "dependencies": {
-    "@cypress/skip-test": "^2.6.1"
+    "cypress": "^14.0.2",
+    "cypress-skip-this-test": "^1.0.1"
   }
 }

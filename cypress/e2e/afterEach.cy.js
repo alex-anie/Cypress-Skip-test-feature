@@ -1,7 +1,10 @@
 describe('Run the afterEach after the completion of a it block', () => {
 
     afterEach(() => {
-        cy.onlyOn('mac').onlyOn('chrome')
+      it.skip('visit the web address  and scroll into view', ()=>{
+        cy.visit('https://ecommerce-playground.lambdatest.io/index.php?route=extension/maza/blog/article&article_id=36')
+        cy.get('#entry_210911 > h4').scrollIntoView()
+    })
     });
 
     it('clicked on the Mac Book Air card', () => {

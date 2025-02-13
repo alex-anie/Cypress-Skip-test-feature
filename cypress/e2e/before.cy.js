@@ -1,18 +1,25 @@
-describe('Verify the Operating system before running', ()=>{
+describe('Verify the url before running', () => {
     
-    before(() => {
-        cy.skipOn('mac').skipOn('firefox')
-      });
+  before(() => {
+      // Check if the URL is valid
+      const url = 'https://ecommerce-playground.lambdatest.io/index.php?route=extension/maza/blog/category&path=6';
+      try {
+          new URL(url); // Will throw an error if the URL is not valid
+      } catch (e) {
+          // Skip the test if URL is invalid
+          cy.log('Invalid URL, skipping the test');
+          this.skip();
+      }
+  });
 
-    it('click the register button and fill in the input tag and click continue', ()=>{
-        // Register custom commands : it register a user to the LambdaTest playground platform
-        cy.register()
-    })
+  it('click the register button and fill in the input tag and click continue', () => {
+    // Register custom commands : it registers a user to the LambdaTest playground platform
+     cy.visit('https://ecommerce-playground.lambdatest.io/index.php?route=common/home')
+      cy.register();
+  });
 
-    it('Open the specified url and navigate to the third blog and then click on the link', () => {
-        cy.visit('https://ecommerce-playground.lambdatest.io/index.php?route=extension/maza/blog/category&path=6');
-        cy.get('#entry_210951 > div > div:nth-child(3) > div > div.caption > a').should('be.visible').click()
-        cy.get('#entry_210900 > nav > ol > li:nth-child(3) > a').should('be.visible').click()
-        cy.get('#entry_210951 > div > div:nth-child(5) > div > div.caption > a').should('be.visible').click()
-    });
-  })
+  it('Open the specified URL and navigate to the third blog and then click on the link', () => {
+    cy.visit('https://ecommerce-playground.lambdatest.io/index.php?route=extension/maza/blog/category&path=6');
+    cy.blog()
+  });
+});

@@ -19,6 +19,7 @@ describe('Select and click the product card', () => {
   describe('Interact with the register form', ()=>{
     it('click the register button and fill in the input tag and click continue', ()=>{
          // Register custom commands : it register a user to the LambdaTest playground platform
+         cy.visit('https://ecommerce-playground.lambdatest.io/index.php?route=common/home')
          cy.register()
     })
   })
@@ -26,6 +27,7 @@ describe('Select and click the product card', () => {
   describe.only('Interact with the Login form', ()=>{
     it('Provide users email and password and login', ()=>{
          // A custom commands : it login a user on the LambdaTest 
+         cy.visit('https://ecommerce-playground.lambdatest.io/index.php?route=common/home')
          cy.login()
     })
   })
