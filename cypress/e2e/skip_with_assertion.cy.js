@@ -16,5 +16,4 @@ describe.only('Test based on URL pathname', () => {
       cy.visit('https://ecommerce-playground.lambdatest.io/index.php?route=common/home')
       cy.register()
   })
-
 })

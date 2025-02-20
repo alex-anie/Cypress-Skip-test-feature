@@ -2,7 +2,7 @@ describe('Verify the url before running', () => {
     
   before(() => {
       // Check if the URL is valid
-      const url = 'https://ecommerce-playground.lambdatest.io/index.php?route=extension/maza/blog/category&path=6';
+      const url = 'invalid-url';
       try {
           new URL(url); // Will throw an error if the URL is not valid
       } catch (e) {

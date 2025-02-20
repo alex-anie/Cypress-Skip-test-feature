@@ -1,15 +1,3 @@
-// HTC Touch HD
-   Cypress.Commands.add('getHtcElement', ()=>{
-        // Visit the initial page
-       cy.visit('https://ecommerce-playground.lambdatest.io/index.php?route=product/category&path=25');
-     
-       // Click on the pagination next button or specific element
-       cy.get('#entry_212409 > div > div.col-sm-6.text-left > ul > li:nth-child(7) > a').click();
-     
-       // After the page loads, target the desired element (image card) on the new page and click
-       cy.get('#mz-product-grid-image-100-212408').should('be.visible').click();
-})
-
 // Register a user
 Cypress.Commands.add('register', ()=>{
     cy.get('#widget-navbar-217834 > ul > li:nth-child(6)').trigger('mouseover')

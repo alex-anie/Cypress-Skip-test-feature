@@ -10,7 +10,7 @@ describe('Test with error handling and Cypress Skip Test', () => {
       // If page loaded successfully, perform actions on the page
       cy.visit('https://ecommerce-playground.lambdatest.io/index.php?route=extension/maza/blog/category&path=6');
         cy.get('#entry_210951 > div > div:nth-child(3) > div > div.caption > a').should('be.visible').click()
-        cy.get('#entry_210900 > nav > ol > li:nth-child(3) > a').should('be.visible').click()
+        //cy.get('#entry_210900 > nav > ol > li:nth-child(3) > a').should('be.visible').click() // this section is intentionally left commented to unable the cypress skip this test plugin to function. 
         cy.get('#entry_210951 > div > div:nth-child(5) > div > div.caption > a').should('be.visible').click()
     });
 
